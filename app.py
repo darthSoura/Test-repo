@@ -8,14 +8,9 @@ app = Flask(__name__)
 
 ENV = 'dev'
 
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wtvuiupcdetxbq:b2574c8bba14c541bd2d6925a25d40ce3310d08cbd457aa637c3361ffc3396bf@ec2-52-205-61-230.compute-1.amazonaws.com:5432/datpsej79i6r5n'
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.debug = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://wtvuiupcdetxbq:b2574c8bba14c541bd2d6925a25d40ce3310d08cbd457aa637c3361ffc3396bf@ec2-52-205-61-230.compute-1.amazonaws.com:5432/datpsej79i6r5n'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app);
 # database and model
@@ -57,7 +52,7 @@ def jsonify_hacks_list(hacks_list):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return "Hello There"
 
 # default Month redirection
 @app.route("/months")
